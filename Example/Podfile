@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'EasyStartGuide_Example' do
+  pod 'EasyStartGuide', :path => '../'
+
+  target 'EasyStartGuide_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
