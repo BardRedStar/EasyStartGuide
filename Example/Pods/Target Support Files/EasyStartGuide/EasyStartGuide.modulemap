@@ -1,0 +1,6 @@
+framework module EasyStartGuide {
+  umbrella header "EasyStartGuide-umbrella.h"
+
+  export *
+  module * { export * }
+}

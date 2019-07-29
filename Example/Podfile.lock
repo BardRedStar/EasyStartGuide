@@ -1,0 +1,16 @@
+PODS:
+  - EasyStartGuide (0.1.0)
+
+DEPENDENCIES:
+  - EasyStartGuide (from `../`)
+
+EXTERNAL SOURCES:
+  EasyStartGuide:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  EasyStartGuide: 400d15248a45129406c53c6bb19d511412b0873b
+
+PODFILE CHECKSUM: d06d5aed7e5995fe698048ca870267d27e99795b
+
+COCOAPODS: 1.7.4

@@ -1,0 +1,22 @@
+{
+  "name": "EasyStartGuide",
+  "version": "0.1.0",
+  "summary": "A short description of EasyStartGuide.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/BardRedStar/EasyStartGuide",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "BardRedStar": "denis.kovalev@saritasa.com"
+  },
+  "source": {
+    "git": "https://github.com/BardRedStar/EasyStartGuide.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "EasyStartGuide/Classes/**/*"
+}
