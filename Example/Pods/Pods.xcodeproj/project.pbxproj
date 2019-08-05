@@ -16,7 +16,9 @@
 		B6F22C236654DEEB36A4B65D172E550D /* Pods-EasyStartGuide_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B0DC4F188F5FE44BECA7A55D2265AE1 /* Pods-EasyStartGuide_Example-dummy.m */; };
 		C06137084BAD7F46281431104B4195E9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
 		CB8230067F0BA8F632A7500B9BC1EB7A /* EasyStartGuide-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 0F83E71C26D1E6F1C7BF708429CEA50F /* EasyStartGuide-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D88A39DFCF1176AD2A3BF3850954E8DF /* ReplaceMe.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE509FF72A31D8A3E3D6D651CE22A9DA /* ReplaceMe.swift */; };
+		CEEECC2722F81F3700C5B655 /* EasyStartGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEECC2622F81F3700C5B655 /* EasyStartGuide.swift */; };
+		CEEECC2922F81F4D00C5B655 /* LessonPopoverViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEECC2822F81F4D00C5B655 /* LessonPopoverViewContoller.swift */; };
+		CEEECC2B22F83A4900C5B655 /* EasyStartGuideModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEECC2A22F83A4900C5B655 /* EasyStartGuideModels.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,8 +67,10 @@
 		B21809B3C26EE218A56D6CBB7DFA35D3 /* Pods_EasyStartGuide_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EasyStartGuide_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8EF0FB9A98F464494B70278B5A2035F /* Pods-EasyStartGuide_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-EasyStartGuide_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		C1A2584F22B45976832803CC17B62DA9 /* EasyStartGuide.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = EasyStartGuide.xcconfig; sourceTree = "<group>"; };
+		CEEECC2622F81F3700C5B655 /* EasyStartGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EasyStartGuide.swift; path = EasyStartGuide/Classes/EasyStartGuide.swift; sourceTree = "<group>"; };
+		CEEECC2822F81F4D00C5B655 /* LessonPopoverViewContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LessonPopoverViewContoller.swift; path = EasyStartGuide/Classes/LessonPopoverViewContoller.swift; sourceTree = "<group>"; };
+		CEEECC2A22F83A4900C5B655 /* EasyStartGuideModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EasyStartGuideModels.swift; path = EasyStartGuide/Classes/EasyStartGuideModels.swift; sourceTree = "<group>"; };
 		DF61EC959A3D37146592524CC8851154 /* Pods-EasyStartGuide_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-EasyStartGuide_Tests-Info.plist"; sourceTree = "<group>"; };
-		EE509FF72A31D8A3E3D6D651CE22A9DA /* ReplaceMe.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ReplaceMe.swift; path = EasyStartGuide/Classes/ReplaceMe.swift; sourceTree = "<group>"; };
 		EFDBE721928B4FBF495C06855C0D89A4 /* Pods-EasyStartGuide_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-EasyStartGuide_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		F1601E83B529E53C0955DFE0969BCB1D /* Pods-EasyStartGuide_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-EasyStartGuide_Example.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -112,9 +116,11 @@
 		53D5276925EEFE1645424E2038097F69 /* EasyStartGuide */ = {
 			isa = PBXGroup;
 			children = (
-				EE509FF72A31D8A3E3D6D651CE22A9DA /* ReplaceMe.swift */,
 				B83679F34A405894E5A16155B3002D78 /* Pod */,
 				AA74283E7A304F370B9FF3B5CF7D92DB /* Support Files */,
+				CEEECC2622F81F3700C5B655 /* EasyStartGuide.swift */,
+				CEEECC2822F81F4D00C5B655 /* LessonPopoverViewContoller.swift */,
+				CEEECC2A22F83A4900C5B655 /* EasyStartGuideModels.swift */,
 			);
 			name = EasyStartGuide;
 			path = ../..;
@@ -369,8 +375,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEEECC2722F81F3700C5B655 /* EasyStartGuide.swift in Sources */,
+				CEEECC2922F81F4D00C5B655 /* LessonPopoverViewContoller.swift in Sources */,
 				1C7AA888E1F1A4CB102D3D06E2074B3C /* EasyStartGuide-dummy.m in Sources */,
-				D88A39DFCF1176AD2A3BF3850954E8DF /* ReplaceMe.swift in Sources */,
+				CEEECC2B22F83A4900C5B655 /* EasyStartGuideModels.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
