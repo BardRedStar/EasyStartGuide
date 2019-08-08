@@ -13,11 +13,18 @@ public class EasyStartGuide {
     
     public static let instance = EasyStartGuide()
     
+    public var options: [EasyStartGuide.GuideOption] = [.backgroundColor(UIColor.lightGray),
+                                                            .textColor(UIColor.white),
+                                                            .cornerRadius(5.0),
+                                                            .dismissMode(.byClickOnGuide)]
+    private var currentLessonIndex = 0
+    private var completionHandler: (() -> Void)?
+    
     private init(){}
     
-    private var currentLessonIndex = 0
-    
-    public func startTutorial(in viewController: UIViewController, withLessons lessons: [GuideLesson]) {
+    public func startTutorial(in viewController: UIViewController, withLessons lessons: [GuideLesson], completionHandler: (() -> Void)? = nil) {
+        self.completionHandler = completionHandler
+        
         if lessons.count > 0 {
             currentLessonIndex = 0
             displayGuideLesson(viewController: viewController,
@@ -31,9 +38,11 @@ public class EasyStartGuide {
     
     private func displayGuideLesson(viewController: UIViewController, lesson: GuideLesson, completionHandler: (() -> Void)?) {
         let popoverLesson = LessonPopoverViewController(hintText: lesson.text,
-                                                  sourceView: lesson.view,
-                                                  sourceRect: CGRect(origin: lesson.point, size: .zero),
-                                                  completion: completionHandler)
+                                                        sourceView: lesson.view,
+                                                        sourceRect: CGRect(origin: lesson.point, size: .zero),
+                                                        arrowDirection: lesson.arrowDirection.value,
+                                                        options: options,
+                                                        completion: completionHandler)
         viewController.present(popoverLesson, animated: false, completion: nil)
     }
     
@@ -46,6 +55,8 @@ public class EasyStartGuide {
                                 guard let self = self else { return }
                                 self.showNextLesson(viewController: viewController, lessons: lessons)
             })
+        } else {
+            completionHandler?()
         }
     }
 }

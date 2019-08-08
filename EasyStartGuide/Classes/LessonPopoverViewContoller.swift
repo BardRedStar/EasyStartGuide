@@ -11,23 +11,35 @@ import UIKit
 
 /// A class for making a popover hint view
 public class LessonPopoverViewController: UIViewController {
-    private var tipTextLabel: UILabel!
+    private var lessonTextLabel: UILabel = {
+        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 150))
+        label.font = UIFont.systemFont(ofSize: 14.0)
+        label.textColor = UIColor.white
+        label.lineBreakMode = .byClipping
+        label.numberOfLines = 0
+        return label
+    }()
     
     private var completionHandler: (() -> Void)?
-    /// - Parameters:
-    ///   - hintText: Text which will be displayed in the hint.
-    ///   - sourceView: sourceView for binding popover.
-    ///   - sourceRect: bounds of the source view. Use X and Y params to create arrow offset.
-    required init(hintText: String, sourceView: UIView, sourceRect: CGRect, completion: (() -> Void)?) {
+    
+    private var dismissMode: EasyStartGuide.GuideOption.DismissMode!
+    private var cornerRadius: CGFloat!
+    private weak var customView: UIView?
+    private weak var customLabel: UILabel?
+    
+    required init(hintText: String, sourceView: UIView, sourceRect: CGRect, arrowDirection: UIPopoverArrowDirection,
+                  options: [EasyStartGuide.GuideOption], completion: (() -> Void)?) {
         super.init(nibName: nil, bundle: nil)
-        completionHandler = completion
         
         modalPresentationStyle = .popover
-        configureView(text: hintText)
+        
+        configureView(text: hintText, options: options)
         popoverPresentationController?.delegate = self
         popoverPresentationController!.sourceView = sourceView
         popoverPresentationController!.sourceRect = sourceRect
-        popoverPresentationController!.permittedArrowDirections = .any
+        popoverPresentationController!.permittedArrowDirections = arrowDirection
+        
+        completionHandler = completion
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -40,49 +52,74 @@ public class LessonPopoverViewController: UIViewController {
         view.addGestureRecognizer(tap)
     }
     
-    public override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        popoverPresentationController?.backgroundColor = UIColor(red: 0.29, green: 0.72, blue: 0.76, alpha: 1.0)
-        view.superview?.layer.cornerRadius = 0
-        view.backgroundColor = UIColor(red: 0.29, green: 0.72, blue: 0.76, alpha: 1.0)
+    public override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        view.superview?.superview?.layer.cornerRadius = cornerRadius
+        view.superview?.layer.cornerRadius = cornerRadius
+        view.layer.cornerRadius = cornerRadius
     }
     
-    /// Configures a tip view with contraints
-    ///
-    /// - Parameter text: Text which will be displayed in the hint
-    private func configureView(text: String) {
+    private func configureView(text: String, options: [EasyStartGuide.GuideOption]) {
+        
+        options.forEach { (option) in
+            switch option {
+            case .backgroundColor(let color):
+                popoverPresentationController?.backgroundColor = color
+            case .textColor(let color):
+                lessonTextLabel.textColor = color
+            case .cornerRadius(let radius):
+                print("corner radius \(radius)")
+                cornerRadius = radius
+            case .dismissMode(let mode):
+                dismissMode = mode
+            case .customView(let view, let label):
+                customView = view
+                customLabel = label
+                popoverPresentationController?.backgroundColor = customView!.backgroundColor
+            }
+        }
+        
+        if customView != nil, customLabel != nil {
+            view.addSubview(customView!)
+            customLabel!.text = text
+            customLabel!.sizeToFit()
+        } else {
+            lessonTextLabel.text = text
+            lessonTextLabel.sizeToFit()
+            view.addSubview(lessonTextLabel)
+            addConstraintsToLabel()
+        }
+        
         view.contentMode = .scaleToFill
-        tipTextLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 150))
-        tipTextLabel.text = text
-        tipTextLabel.font = UIFont.systemFont(ofSize: 14.0)
-        tipTextLabel.textColor = UIColor.white
-        tipTextLabel.lineBreakMode = .byClipping
-        tipTextLabel.numberOfLines = 0
-        tipTextLabel.sizeToFit()
-        view.addSubview(tipTextLabel)
+        view.frame.size = preferredContentSize
         view.layoutSubviews()
-        
-        addConstraints()
     }
     
-    private func addConstraints() {
-        tipTextLabel.translatesAutoresizingMaskIntoConstraints = false
-        let top = NSLayoutConstraint(item: tipTextLabel!, attribute: .top, relatedBy: .equal, toItem: view, attribute: .top, multiplier: 1, constant: 10)
-        let left = NSLayoutConstraint(item: tipTextLabel!, attribute: .left, relatedBy: .equal, toItem: view, attribute: .left, multiplier: 1, constant: 16)
-        let right = NSLayoutConstraint(item: tipTextLabel!, attribute: .right, relatedBy: .equal, toItem: view, attribute: .right, multiplier: 1, constant: -16)
-        right.priority = UILayoutPriority(999)
-        
-        view.addConstraints([top, left, right])
+    private func addConstraintsToLabel() {
+        lessonTextLabel.translatesAutoresizingMaskIntoConstraints = false
+        let trailingConstraint = lessonTextLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10)
+        trailingConstraint.priority = UILayoutPriority(999)
+        let bottomConstraint = lessonTextLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -10)
+        bottomConstraint.priority = UILayoutPriority(999)
+        NSLayoutConstraint.activate([lessonTextLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
+                                     lessonTextLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 10),
+                                     trailingConstraint,
+                                     bottomConstraint])
     }
     
     public override var preferredContentSize: CGSize {
         get {
-            if tipTextLabel != nil, presentingViewController != nil {
-                var size = tipTextLabel!.sizeThatFits(CGSize(width: 200.0, height: 150))
-                // Add size for constraints
-                size.height += 24
-                size.width += 32
-                return size
+            if presentingViewController != nil {
+                if customView != nil && customLabel != nil {
+                    let size = customView!.frame.size
+                    return size
+                } else {
+                    var size = lessonTextLabel.sizeThatFits(CGSize(width: 200.0, height: 150))
+                    // Add size for constraints
+                    size.height += 24
+                    size.width += 32
+                    return size
+                }
             } else {
                 return super.preferredContentSize
             }
