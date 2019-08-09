@@ -13,10 +13,10 @@ An easy implementation your own application guides into view controllers for iOS
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 <p float="left">
-<img src="Screenshots/general1.png" alt="alt text" width="250" height="444">
-<img src="Screenshots/general2.png" alt="alt text" width="250" height="444">
-<img src="Screenshots/general3.png" alt="alt text" width="250" height="444">
-<img src="Screenshots/general4.png" alt="alt text" width="250" height="444">
+<img src="Screenshots/general1.png" alt="alt text" width="200" height="356">
+<img src="Screenshots/general2.png" alt="alt text" width="200" height="356">
+<img src="Screenshots/general2.png" alt="alt text" width="200" height="356">
+<img src="Screenshots/general4.png" alt="alt text" width="200" height="356">
 </p>
 
 # Requirements
@@ -79,6 +79,22 @@ Possible values:
 + `.center` - Center of the view
 + `.custom(x: CGPoint, y: CGPoint)` - Custom point from the top-left corner
 
+<details>
+<summary> Preview </summary>
+<p float="left">
+  <img src="Screenshots/location_topleft.png" alt="alt text" width="200" height="356">
+  <img src="Screenshots/location_topright.png" alt="alt text" width="200" height="356">
+  <img src="Screenshots/location_bottomleft.png" alt="alt text" width="200" height="356">
+  <img src="Screenshots/location_bottomright.png" alt="alt text" width="200" height="356">
+  <img src="Screenshots/location_topcenter.png" alt="alt text" width="200" height="356">
+  <img src="Screenshots/location_bottomcenter.png" alt="alt text" width="200" height="356">
+  <img src="Screenshots/location_leftcenter.png" alt="alt text" width="200" height="356">
+  <img src="Screenshots/location_rightcenter.png" alt="alt text" width="200" height="356">
+  <img src="Screenshots/location_center.png" alt="alt text" width="200" height="356">
+  <img src="Screenshots/location_custom.png" alt="alt text" width="200" height="356">
+</p>
+</details>
+
 #### Arrow direction
 
 The option, which defines permitted directions of lesson view arrow.
@@ -92,6 +108,16 @@ Possible values:
 * `.left` - Only right-to-left arrow
 * `.right` - Only left-to-right arrow
 * `.any` - Any arrow direction (default value)
+
+<details>
+<summary> Preview </summary>
+<p float="left">
+  <img src="Screenshots/arrow_up.png" alt="alt text" width="200" height="356">
+  <img src="Screenshots/arrow_down.png" alt="alt text" width="200" height="356">
+  <img src="Screenshots/arrow_left.png" alt="alt text" width="200" height="356">
+  <img src="Screenshots/arrow_right.png" alt="alt text" width="200" height="356">
+</p>
+</details>
 
 ### Global parameters
 
@@ -135,6 +161,13 @@ Usage:
 >
 > For some reasons it cannot be greater than 13.0 and less than 0.0. Greater value won't affect the view.
 
+<details>
+<summary> Preview </summary>
+<p float="left">
+  <img src="Screenshots/custom_colors.png" alt="alt text" width="200" height="356">
+</p>
+</details>
+
 #### Custom view
 
 This parameter provides the custom view which the lesson view will based on. The custom view **necessarily** should has a label view to print text on it. Background color and text color of the lesson will be applied from the custom view properties.
@@ -146,6 +179,13 @@ Usage:
 > :heavy_exclamation_mark: **NOTE:** 
 >
 > Container view should be with detemined width and height!
+
+<details>
+<summary> Preview </summary>
+<p float="left">
+  <img src="Screenshots/custom_view.png" alt="alt text" width="200" height="356">
+</p>
+</details>
 
 #### Dismiss mode
 
@@ -161,8 +201,16 @@ Possible values:
 * `.byClickOnGuide` - Dismisses lesson only after click on lesson view (default value)
 
 > :heavy_exclamation_mark: **NOTE:** 
+>
 > This parameter has a great compatibility with the customView and it won't dismiss the lesson even after click on button on the custom view.
 
+<details>
+<summary> Preview </summary>
+<p float="left">
+  <img src="Screenshots/dismiss_anywhere.gif" alt="alt text" width="200" height="356">
+  <img src="Screenshots/dismiss_guide.gif" alt="alt text" width="200" height="356">
+</p>
+</details>
 
 # Author
 
