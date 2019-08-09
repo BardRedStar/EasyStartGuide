@@ -97,7 +97,7 @@ Possible values:
 </p>
 </details>
 
-<hr width="1px">
+***
 
 #### Arrow direction
 
@@ -124,7 +124,7 @@ Possible values:
 </p>
 </details>
 
-<hr size="1px">
+***
 
 ### Global parameters
 
@@ -144,7 +144,7 @@ Usage:
 .backgroundColor(UIColor.darkGray) 
 ```
 
-<hr size="1px">
+***
 
 #### Text color
 
@@ -158,7 +158,7 @@ Usage:
 >
 > If you set the custom view parameter, the text color won't work with it!
 
-<hr size="1px">
+***
 
 #### Corner radius
 
@@ -180,7 +180,7 @@ Usage:
 </p>
 </details>
 
-<hr size="1px">
+***
 
 #### Custom view
 
@@ -202,7 +202,7 @@ Usage:
 </p>
 </details>
 
-<hr size="1px">
+***
 
 #### Dismiss mode
 
@@ -230,7 +230,7 @@ Possible values:
 </p>
 </details>
 
-<hr size="1px">
+***
 
 # Author
 
