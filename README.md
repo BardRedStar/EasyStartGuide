@@ -14,6 +14,9 @@ An easy implementation your own application guides into view controllers for iOS
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
 ![Screen1](Screenshots/general1.png?raw=true "Screen1")
+![Screen2](Screenshots/general2.png?raw=true "Screen2")
+![Screen3](Screenshots/general3.png?raw=true "Screen3")
+![Screen4](Screenshots/general4.png?raw=true "Screen4")
 
 
 
