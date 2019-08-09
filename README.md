@@ -12,11 +12,12 @@ An easy implementation your own application guides into view controllers for iOS
 # Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
-
+<p float="left">
 <img src="Screenshots/general1.png" alt="alt text" width="250" height="444">
 <img src="Screenshots/general2.png" alt="alt text" width="250" height="444">
 <img src="Screenshots/general3.png" alt="alt text" width="250" height="444">
 <img src="Screenshots/general4.png" alt="alt text" width="250" height="444">
+</p>
 
 # Requirements
 
