@@ -29,32 +29,34 @@ class ViewController: UIViewController {
     /// Starts the tutorial with default options. Shows basic usage of library and some individual options for each tutorial lesson.
     func startBasicGuide() {
         let basicGuideInstance = EasyStartGuide.instance
-        basicGuideInstance.startTutorial(in: self,
-                                         withLessons: [
-                                            // Common example
-                                            EasyStartGuide.GuideLesson(view: blueView, text: "There is a blue view on the top-left of the view!"),
-                                            EasyStartGuide.GuideLesson(view: greenView, text: "Small text"),
-                                            EasyStartGuide.GuideLesson(view: redView, text: "Bottom tip :)"),
-                                            EasyStartGuide.GuideLesson(view: orangeView, text: "Very-very-very-very-very-very-very-very-very-very-very-very-very-very huge text for the orange view"),
-                                            
-                                            // Arrow location example
-                                            EasyStartGuide.GuideLesson(view: centerLabel, text: "Top-left point of the center label", location: .topLeft),
-                                            EasyStartGuide.GuideLesson(view: centerLabel, text: "Top-right point of the center label", location: .topRight),
-                                            EasyStartGuide.GuideLesson(view: centerLabel, text: "Bottom-left point of the center label", location: .bottomLeft),
-                                            EasyStartGuide.GuideLesson(view: centerLabel, text: "Bottom-right point of the center label", location: .bottomRight),
-                                            EasyStartGuide.GuideLesson(view: centerLabel, text: "Top-center point of the center label", location: .topCenter),
-                                            EasyStartGuide.GuideLesson(view: centerLabel, text: "Bottom-center point of the center label", location: .bottomCenter),
-                                            EasyStartGuide.GuideLesson(view: centerLabel, text: "Left-center point of the center label", location: .leftCenter),
-                                            EasyStartGuide.GuideLesson(view: centerLabel, text: "Right-center point of the center label", location: .rightCenter),
-                                            EasyStartGuide.GuideLesson(view: centerLabel, text: "Custom point (10, 5) from the top-left point of the center label", location: .custom(x: 10.0, y: 5.0)),
-                                            
-                                            // Arrow direction example
-                                            EasyStartGuide.GuideLesson(view: centerLabel, text: "Up arrow", arrowDirection: .up),
-                                            EasyStartGuide.GuideLesson(view: centerLabel, text: "Down arrow", arrowDirection: .down),
-                                            EasyStartGuide.GuideLesson(view: centerLabel, text: "Left arrow", arrowDirection: .left),
-                                            EasyStartGuide.GuideLesson(view: centerLabel, text: "Right arrow", arrowDirection: .right)],
-                                         completionHandler: {
-                                            self.startAdvancedGuide()
+        basicGuideInstance.startTutorial(
+            in: self,
+            withLessons: [
+                // Common example
+                EasyStartGuide.GuideLesson(view: blueView, text: "There is a blue view on the top-left of the view!"),
+                EasyStartGuide.GuideLesson(view: greenView, text: "Small text"),
+                EasyStartGuide.GuideLesson(view: redView, text: "Bottom tip :)"),
+                EasyStartGuide.GuideLesson(view: orangeView, text: "Very-very-very-very-very-very-very-very-very-very-very-very-very-very huge text for the orange view"),
+                
+                // Arrow location example
+                EasyStartGuide.GuideLesson(view: centerLabel, text: "Top-left point of the center label", location: .topLeft),
+                EasyStartGuide.GuideLesson(view: centerLabel, text: "Top-right point of the center label", location: .topRight),
+                EasyStartGuide.GuideLesson(view: centerLabel, text: "Bottom-left point of the center label", location: .bottomLeft),
+                EasyStartGuide.GuideLesson(view: centerLabel, text: "Bottom-right point of the center label", location: .bottomRight),
+                EasyStartGuide.GuideLesson(view: centerLabel, text: "Top-center point of the center label", location: .topCenter),
+                EasyStartGuide.GuideLesson(view: centerLabel, text: "Bottom-center point of the center label", location: .bottomCenter),
+                EasyStartGuide.GuideLesson(view: centerLabel, text: "Left-center point of the center label", location: .leftCenter),
+                EasyStartGuide.GuideLesson(view: centerLabel, text: "Right-center point of the center label", location: .rightCenter),
+                EasyStartGuide.GuideLesson(view: centerLabel, text: "Custom point (10, 5) from the top-left point of the center label", location: .custom(x: 10.0, y: 5.0)),
+                
+                // Arrow direction example
+                EasyStartGuide.GuideLesson(view: centerLabel, text: "Up arrow", arrowDirection: .up),
+                EasyStartGuide.GuideLesson(view: centerLabel, text: "Down arrow", arrowDirection: .down),
+                EasyStartGuide.GuideLesson(view: centerLabel, text: "Left arrow", arrowDirection: .left),
+                EasyStartGuide.GuideLesson(view: centerLabel, text: "Right arrow", arrowDirection: .right)
+            ],
+            completionHandler: {
+                self.startAdvancedGuide()
         })
     }
     
