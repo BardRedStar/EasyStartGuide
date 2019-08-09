@@ -9,6 +9,7 @@
 import UIKit
 import EasyStartGuide
 
+/// A class for example view controller
 class ViewController: UIViewController {
     
     @IBOutlet weak var blueView: UIView!
@@ -26,8 +27,6 @@ class ViewController: UIViewController {
     
     func startBasicGuide() {
         let basicGuideInstance = EasyStartGuide.instance
-        basicGuideInstance.options.append(.cornerRadius(0.0))
-        
         basicGuideInstance.startTutorial(in: self,
                                          withLessons: [
                                             // Common example
@@ -59,9 +58,9 @@ class ViewController: UIViewController {
     
     private func startAdvancedGuide() {
         let advancedGuideInstance = EasyStartGuide.instance
-        advancedGuideInstance.options = [.backgroundColor(UIColor.darkGray), .textColor(UIColor.green), .cornerRadius(0.0), .dismissMode(.byClickAnywhere)]
+        advancedGuideInstance.options = [.backgroundColor(UIColor.darkGray), .textColor(UIColor.green), .cornerRadius(4.0), .dismissMode(.byClickAnywhere)]
         advancedGuideInstance.startTutorial(in: self,
-                                            withLessons: [EasyStartGuide.GuideLesson(view: centerLabel, text: "Custom colors and corner radius", arrowDirection: .up)],
+                                            withLessons: [EasyStartGuide.GuideLesson(view: centerLabel, text: "Custom colors and corners", arrowDirection: .up)],
                                             completionHandler: {
                                                 self.startCustomViewGuide()
         })

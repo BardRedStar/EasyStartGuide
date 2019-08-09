@@ -13,10 +13,7 @@ public class EasyStartGuide {
     
     public static let instance = EasyStartGuide()
     
-    public var options: [EasyStartGuide.GuideOption] = [.backgroundColor(UIColor.lightGray),
-                                                            .textColor(UIColor.white),
-                                                            .cornerRadius(5.0),
-                                                            .dismissMode(.byClickOnGuide)]
+    public var options: [EasyStartGuide.GuideOption] = []
     private var currentLessonIndex = 0
     private var completionHandler: (() -> Void)?
     
