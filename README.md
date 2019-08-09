@@ -15,7 +15,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 <p float="left">
 <img src="Screenshots/general1.png" alt="alt text" width="200" height="356">   
 <img src="Screenshots/general2.png" alt="alt text" width="200" height="356">   
-<img src="Screenshots/general2.png" alt="alt text" width="200" height="356">    
+<img src="Screenshots/general3.png" alt="alt text" width="200" height="356">    
 <img src="Screenshots/general4.png" alt="alt text" width="200" height="356">   
 </p>
 
@@ -96,6 +96,8 @@ Possible values:
 </p>
 </details>
 
+***
+
 #### Arrow direction
 
 The option, which defines permitted directions of lesson view arrow.
@@ -121,6 +123,8 @@ Possible values:
 </p>
 </details>
 
+***
+
 ### Global parameters
 
 Global parameters can be added globally for the current EasyStartGuide instance. They affect the whole tutorial and cannot be modified when the tutorial in progress.
@@ -130,6 +134,8 @@ To set the global parameters to the instance, you should set the ```options``` p
 easyStartGuideInstance.options = [.backgroundColor(UIColor.lightGray), .cornerRadius(5.0)]
 ```
 
+***
+
 #### Background color
 
 The color of the lesson view background including arrow color. The default value is UIColor.lightGray. 
@@ -138,6 +144,8 @@ Usage:
 ```swift 
 .backgroundColor(UIColor.darkGray) 
 ```
+
+***
 
 #### Text color
 
@@ -150,6 +158,8 @@ Usage:
 > :heavy_exclamation_mark: **NOTE:** 
 >
 > If you set the custom view parameter, the text color won't work with it!
+
+***
 
 #### Corner radius
 
@@ -171,6 +181,8 @@ Usage:
 </p>
 </details>
 
+***
+
 #### Custom view
 
 This parameter provides the custom view which the lesson view will based on. The custom view **necessarily** should has a label view to print text on it. Background color and text color of the lesson will be applied from the custom view properties.
@@ -190,6 +202,8 @@ Usage:
   <img src="Screenshots/custom_view.png" alt="alt text" width="200" height="356">
 </p>
 </details>
+
+***
 
 #### Dismiss mode
 
@@ -219,7 +233,7 @@ Possible values:
 
 # Author
 
-BardRedStar, denis.kovalev@saritasa.com
+BardRedStar, den.kovalev999@gmail.com
 
 # License
 
