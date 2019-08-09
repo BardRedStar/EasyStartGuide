@@ -13,10 +13,10 @@ An easy implementation your own application guides into view controllers for iOS
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 <p float="left">
-<img src="Screenshots/general1.png" alt="alt text" width="200" height="356">
-<img src="Screenshots/general2.png" alt="alt text" width="200" height="356">
-<img src="Screenshots/general2.png" alt="alt text" width="200" height="356">
-<img src="Screenshots/general4.png" alt="alt text" width="200" height="356">
+<img src="Screenshots/general1.png" alt="alt text" width="200" height="356">   
+<img src="Screenshots/general2.png" alt="alt text" width="200" height="356">   
+<img src="Screenshots/general2.png" alt="alt text" width="200" height="356">    
+<img src="Screenshots/general4.png" alt="alt text" width="200" height="356">   
 </p>
 
 # Requirements
@@ -79,8 +79,9 @@ Possible values:
 + `.center` - Center of the view
 + `.custom(x: CGPoint, y: CGPoint)` - Custom point from the top-left corner
 
+
 <details>
-<summary> Preview </summary>
+<summary> :camera: Preview </summary>
 <p float="left">
   <img src="Screenshots/location_topleft.png" alt="alt text" width="200" height="356">
   <img src="Screenshots/location_topright.png" alt="alt text" width="200" height="356">
@@ -109,8 +110,9 @@ Possible values:
 * `.right` - Only left-to-right arrow
 * `.any` - Any arrow direction (default value)
 
+
 <details>
-<summary> Preview </summary>
+<summary> :camera: Preview </summary>
 <p float="left">
   <img src="Screenshots/arrow_up.png" alt="alt text" width="200" height="356">
   <img src="Screenshots/arrow_down.png" alt="alt text" width="200" height="356">
@@ -161,8 +163,9 @@ Usage:
 >
 > For some reasons it cannot be greater than 13.0 and less than 0.0. Greater value won't affect the view.
 
+
 <details>
-<summary> Preview </summary>
+<summary> :camera: Preview </summary>
 <p float="left">
   <img src="Screenshots/custom_colors.png" alt="alt text" width="200" height="356">
 </p>
@@ -180,8 +183,9 @@ Usage:
 >
 > Container view should be with detemined width and height!
 
+
 <details>
-<summary> Preview </summary>
+<summary> :camera: Preview </summary>
 <p float="left">
   <img src="Screenshots/custom_view.png" alt="alt text" width="200" height="356">
 </p>
@@ -204,8 +208,9 @@ Possible values:
 >
 > This parameter has a great compatibility with the customView and it won't dismiss the lesson even after click on button on the custom view.
 
+
 <details>
-<summary> Preview </summary>
+<summary> :camera: Preview </summary>
 <p float="left">
   <img src="Screenshots/dismiss_anywhere.gif" alt="alt text" width="200" height="356">
   <img src="Screenshots/dismiss_guide.gif" alt="alt text" width="200" height="356">
