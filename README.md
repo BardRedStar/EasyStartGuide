@@ -104,6 +104,7 @@ Usage:
 ```swift 
 .backgroundColor(UIColor.darkGray) 
 ```
+
 #### Text color
 
 The color of the lesson text. The default value is UIColor.white. 
@@ -112,7 +113,8 @@ Usage:
 ```swift 
 .textColor(UIColor.black) 
 ```
-> :tw-203c: **NOTE:** 
+> :heavy_exclamation_mark: **NOTE:** 
+>
 > If you set the custom view parameter, the text color won`t work with it!
 
 #### Corner radius
@@ -123,7 +125,8 @@ Usage:
 ```swift 
 .cornerRadius(5.0) 
 ```
-> :tw-203c: **NOTE:** 
+> :heavy_exclamation_mark: **NOTE:** 
+>
 > For some reasons it cannot be greater than 13.0 and less than 0.0. Greater value won`t affect the view.
 
 #### Custom view
@@ -134,7 +137,8 @@ Usage:
 ```swift 
 .customView(containerView: view, label: label)  // view and label are the existing vews
 ```
-> :tw-203c: **NOTE:** 
+> :heavy_exclamation_mark: **NOTE:** 
+>
 > Container view should be with detemined width and height!
 
 #### Dismiss mode
@@ -150,7 +154,7 @@ Possible values:
 * `.byClickAnywhere` - Dismisses lesson after click in any place on the screen
 * `.byClickOnGuide` - Dismisses lesson only after click on lesson view (default value)
 
-> :tw-203c: **NOTE:** 
+> :heavy_exclamation_mark: **NOTE:** 
 > This parameter has a great compatibility with the customView and it won`t dismiss the lesson even after click on button on the custom view.
 
 
