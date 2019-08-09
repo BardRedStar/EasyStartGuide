@@ -9,16 +9,29 @@
 import Foundation
 import UIKit
 
+/// A main class for initiate guide
 public class EasyStartGuide {
     
+    /// Singleton instance of guide controller
     public static let instance = EasyStartGuide()
     
+    /// Global guide options
     public var options: [EasyStartGuide.GuideOption] = []
+    
     private var currentLessonIndex = 0
+    
+    /// Called when the tutorial ends
     private var completionHandler: (() -> Void)?
     
     private init(){}
     
+    
+    /// Starts the tutorial
+    ///
+    /// - Parameters:
+    ///   - viewController: Controller instance in which the tutorial will be presented
+    ///   - lessons: Array of lesson objects to show in order
+    ///   - completionHandler: Handler which will be called when the last lesson ends
     public func startTutorial(in viewController: UIViewController, withLessons lessons: [GuideLesson], completionHandler: (() -> Void)? = nil) {
         self.completionHandler = completionHandler
         
@@ -33,8 +46,15 @@ public class EasyStartGuide {
         }
     }
     
+    
+    /// Displays lesson
+    ///
+    /// - Parameters:
+    ///   - viewController: Controller instance in which the lesson will be presented
+    ///   - lesson: Lesson instance to present
+    ///   - completionHandler: Handler which will be called when the last lesson ends
     private func displayGuideLesson(viewController: UIViewController, lesson: GuideLesson, completionHandler: (() -> Void)?) {
-        let popoverLesson = LessonPopoverViewController(hintText: lesson.text,
+        let popoverLesson = LessonPopoverViewController(text: lesson.text,
                                                         sourceView: lesson.view,
                                                         sourceRect: CGRect(origin: lesson.point, size: .zero),
                                                         arrowDirection: lesson.arrowDirection.value,
@@ -43,6 +63,12 @@ public class EasyStartGuide {
         viewController.present(popoverLesson, animated: false, completion: nil)
     }
     
+    
+    /// Shows the next lesson in order or calls completion handler if the last lesson was shown
+    ///
+    /// - Parameters:
+    ///   - viewController: Controller instance in which the lesson will be presented
+    ///   - lessons: Array of lesson objects to show in order
     private func showNextLesson(viewController: UIViewController, lessons: [GuideLesson]) {
         currentLessonIndex += 1
         if currentLessonIndex < lessons.count {

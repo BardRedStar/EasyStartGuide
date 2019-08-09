@@ -21,10 +21,12 @@ class ViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        // Do any additional setup after loading the view, typically from a nib.
+        // Start tutorials
         startBasicGuide()
     }
     
+    
+    /// Starts the tutorial with default options. Shows basic usage of library and some individual options for each tutorial lesson.
     func startBasicGuide() {
         let basicGuideInstance = EasyStartGuide.instance
         basicGuideInstance.startTutorial(in: self,
@@ -56,6 +58,8 @@ class ViewController: UIViewController {
         })
     }
     
+    
+    /// Starts the advanced guide with some global configurations of tutorial instance
     private func startAdvancedGuide() {
         let advancedGuideInstance = EasyStartGuide.instance
         advancedGuideInstance.options = [.backgroundColor(UIColor.darkGray), .textColor(UIColor.green), .cornerRadius(4.0), .dismissMode(.byClickAnywhere)]
@@ -66,20 +70,30 @@ class ViewController: UIViewController {
         })
     }
     
+    
+    /// Starts the guide with custom view
     private func startCustomViewGuide() {
         
+        // Get test view and label to bind them to tutorial
         let (testView, testLabel) = makeCustomView()
         
         let customViewGuideInstance = EasyStartGuide.instance
-        customViewGuideInstance.options = [.customView(testView, testLabel), .cornerRadius(0.0)]
+        // Bind container view and label to present text on it
+        customViewGuideInstance.options = [.customView(containerView: testView, label: testLabel), .cornerRadius(8.0)]
         customViewGuideInstance.startTutorial(in: self, withLessons: [EasyStartGuide.GuideLesson(view: centerLabel, text: "Custom view example")])
     }
     
+    
+    /// Creates a custom view with label and button
+    ///
+    /// - Returns: Couple of views: container view and label view
     private func makeCustomView() -> (UIView, UILabel) {
+        // Configure view
         let testView = UIView()
         testView.backgroundColor = UIColor.black
         testView.translatesAutoresizingMaskIntoConstraints = false
         
+        // Configure label
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 14.0)
         label.textColor = UIColor.white
@@ -89,6 +103,7 @@ class ViewController: UIViewController {
         label.sizeToFit()
         label.translatesAutoresizingMaskIntoConstraints = false
         
+        // Configure button
         let button = UIButton()
         button.setTitle("Test", for: .normal)
         button.setTitleColor(UIColor(red: 0.85, green: 0.35, blue: 0.35, alpha: 1.0), for: .normal)
@@ -97,6 +112,7 @@ class ViewController: UIViewController {
         testView.addSubview(label)
         testView.addSubview(button)
         
+        // Constraints
         NSLayoutConstraint.activate([
             label.leadingAnchor.constraint(equalTo: testView.leadingAnchor, constant: 10),
             label.topAnchor.constraint(equalTo: testView.topAnchor, constant: 10),
@@ -109,6 +125,7 @@ class ViewController: UIViewController {
             button.trailingAnchor.constraint(equalTo: testView.trailingAnchor, constant: -10)
             ])
         
+        // Draw it immediately to define sizes
         testView.layoutIfNeeded()
         
         return (testView, label)

@@ -8,24 +8,46 @@
 import Foundation
 import UIKit
 
+/// An extension for holding model
 public extension EasyStartGuide {
     
+    /// Represents guide options
     enum GuideOption {
         
+        /// Represents lesson dismiss modes
         public enum DismissMode {
+            /// Dismisses the lesson only by click on lesson view
             case byClickOnGuide
+            
+            /// Dismisses the lesson by click anywhere
             case byClickAnywhere
         }
         
+        /// Leson background color (doesn't work with custom view mode)
         case backgroundColor(UIColor)
+        
+        /// Lesson text color (doesn't work with custom view mode)
         case textColor(UIColor)
+        
+        /// Lesson view corner radius (can't be more than 13.0 and less than 0.0)
         case cornerRadius(CGFloat)
-        case customView(UIView, UILabel)
+        
+        /// Custom view option
+        ///
+        /// - Parameters:
+        ///   - containerView: A main view for display
+        ///   - label: A label in container view to display text at
+        case customView(containerView: UIView, label: UILabel)
+        
+        /// Lesson view dismiss mode
         case dismissMode(DismissMode)
     }
     
+    
+    /// A struct for holding info about lesson instance
     struct GuideLesson {
         
+        /// Represents the location of the lesson arrow pointer
         public enum Location {
             case topCenter
             case bottomCenter
@@ -39,6 +61,7 @@ public extension EasyStartGuide {
             case custom(x: CGFloat, y: CGFloat)
         }
         
+        /// Represents the arrow direction of the lesson view
         public enum ArrowDirection {
             case up
             case left
@@ -46,6 +69,8 @@ public extension EasyStartGuide {
             case right
             case any
             
+            
+            /// Gets the arrow direction in the popover notation
             var value: UIPopoverArrowDirection {
                 switch self {
                 case .up: return .up
@@ -57,11 +82,13 @@ public extension EasyStartGuide {
             }
         }
         
+        
         weak var view: UIView!
         var text: String
         var location: Location
         var arrowDirection: ArrowDirection
         
+        /// Calculates the location point according to view
         var point: CGPoint {
             switch location {
             case .topLeft:
@@ -87,6 +114,11 @@ public extension EasyStartGuide {
             }
         }
         
+        /// - Parameters:
+        ///   - view: The view to display the lesson at
+        ///   - text: Text of the lesson
+        ///   - location: Arrow pointer location
+        ///   - arrowDirection: Permitted arrow direction
         public init(view: UIView, text: String, location: Location = .topLeft, arrowDirection: ArrowDirection = .any) {
             self.view = view
             self.text = text
