@@ -13,6 +13,10 @@ An easy implementation your own application guides into view controllers for iOS
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
+![Screen1](Screenshots/general1.png?raw=true "Screen1")
+
+
+
 # Requirements
 
 * Swift 4+
@@ -42,7 +46,7 @@ let lessons = [EasyStartGuide.GuideLesson(view: targetView, text: "My first less
 ```swift
 easyStartGuideInstance.startTutorial(in: viewController, withLessons: lessons)
 ```
-And that`s it!
+And that's it!
 
 ## Optional parameters
 
@@ -115,7 +119,7 @@ Usage:
 ```
 > :heavy_exclamation_mark: **NOTE:** 
 >
-> If you set the custom view parameter, the text color won`t work with it!
+> If you set the custom view parameter, the text color won't work with it!
 
 #### Corner radius
 
@@ -127,7 +131,7 @@ Usage:
 ```
 > :heavy_exclamation_mark: **NOTE:** 
 >
-> For some reasons it cannot be greater than 13.0 and less than 0.0. Greater value won`t affect the view.
+> For some reasons it cannot be greater than 13.0 and less than 0.0. Greater value won't affect the view.
 
 #### Custom view
 
@@ -155,7 +159,7 @@ Possible values:
 * `.byClickOnGuide` - Dismisses lesson only after click on lesson view (default value)
 
 > :heavy_exclamation_mark: **NOTE:** 
-> This parameter has a great compatibility with the customView and it won`t dismiss the lesson even after click on button on the custom view.
+> This parameter has a great compatibility with the customView and it won't dismiss the lesson even after click on button on the custom view.
 
 
 # Author
