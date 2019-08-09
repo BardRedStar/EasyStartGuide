@@ -7,7 +7,8 @@
 
 
 An easy implementation your own application guides into view controllers for iOS written in Swift.
-***
+
+<hr size="1px">
 
 # Example
 
@@ -96,7 +97,7 @@ Possible values:
 </p>
 </details>
 
-***
+<hr width="1px">
 
 #### Arrow direction
 
@@ -123,7 +124,7 @@ Possible values:
 </p>
 </details>
 
-***
+<hr size="1px">
 
 ### Global parameters
 
@@ -134,8 +135,6 @@ To set the global parameters to the instance, you should set the ```options``` p
 easyStartGuideInstance.options = [.backgroundColor(UIColor.lightGray), .cornerRadius(5.0)]
 ```
 
-***
-
 #### Background color
 
 The color of the lesson view background including arrow color. The default value is UIColor.lightGray. 
@@ -145,7 +144,7 @@ Usage:
 .backgroundColor(UIColor.darkGray) 
 ```
 
-***
+<hr size="1px">
 
 #### Text color
 
@@ -159,7 +158,7 @@ Usage:
 >
 > If you set the custom view parameter, the text color won't work with it!
 
-***
+<hr size="1px">
 
 #### Corner radius
 
@@ -181,7 +180,7 @@ Usage:
 </p>
 </details>
 
-***
+<hr size="1px">
 
 #### Custom view
 
@@ -203,7 +202,7 @@ Usage:
 </p>
 </details>
 
-***
+<hr size="1px">
 
 #### Dismiss mode
 
@@ -230,6 +229,8 @@ Possible values:
   <img src="Screenshots/dismiss_guide.gif" alt="alt text" width="200" height="356">
 </p>
 </details>
+
+<hr size="1px">
 
 # Author
 
