@@ -12,9 +12,6 @@ import UIKit
 /// A main class for initiate guide
 public class EasyStartGuide {
     
-    /// Singleton instance of guide controller
-    public static let instance = EasyStartGuide()
-    
     /// Global guide options
     public var options: [EasyStartGuide.GuideOption] = []
     
@@ -23,7 +20,8 @@ public class EasyStartGuide {
     /// Called when the tutorial ends
     private var completionHandler: (() -> Void)?
     
-    private init(){}
+    public required init() {
+    }
     
     
     /// Starts the tutorial

@@ -23,7 +23,7 @@ public extension EasyStartGuide {
             case byClickAnywhere
         }
         
-        /// Leson background color (doesn't work with custom view mode)
+        /// Lesson background color (doesn't work with custom view mode)
         case backgroundColor(UIColor)
         
         /// Lesson text color (doesn't work with custom view mode)

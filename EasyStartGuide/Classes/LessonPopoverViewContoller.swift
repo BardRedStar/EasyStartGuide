@@ -133,11 +133,11 @@ public class LessonPopoverViewController: UIViewController {
     /// - Parameter text: Text to place in label
     private func configureView(text: String) {
         // If the custom view enabled
-        if customView != nil, customLabel != nil {
-            view.addSubview(customView!)
-            customLabel!.text = text
-            customLabel!.sizeToFit()
-            backgroundColor = customView!.backgroundColor!
+        if let customView = customView, let customLabel = customLabel {
+            view.addSubview(customView)
+            customLabel.text = text
+            customLabel.sizeToFit()
+            backgroundColor = customView.backgroundColor!
         } else {
             // Usual case with default label
             lessonTextLabel.text = text

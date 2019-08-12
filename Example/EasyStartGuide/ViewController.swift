@@ -18,6 +18,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var orangeView: UIView!
     @IBOutlet weak var centerLabel: UILabel!
     
+    let guideInstance: EasyStartGuide = EasyStartGuide()
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -28,8 +29,7 @@ class ViewController: UIViewController {
     
     /// Starts the tutorial with default options. Shows basic usage of library and some individual options for each tutorial lesson.
     func startBasicGuide() {
-        let basicGuideInstance = EasyStartGuide.instance
-        basicGuideInstance.startTutorial(
+        guideInstance.startTutorial(
             in: self,
             withLessons: [
                 // Common example
@@ -63,12 +63,12 @@ class ViewController: UIViewController {
     
     /// Starts the advanced guide with some global configurations of tutorial instance
     private func startAdvancedGuide() {
-        let advancedGuideInstance = EasyStartGuide.instance
-        advancedGuideInstance.options = [.backgroundColor(UIColor.darkGray), .textColor(UIColor.green), .cornerRadius(4.0), .dismissMode(.byClickAnywhere)]
-        advancedGuideInstance.startTutorial(in: self,
-                                            withLessons: [EasyStartGuide.GuideLesson(view: centerLabel, text: "Custom colors and corners", arrowDirection: .up)],
-                                            completionHandler: {
-                                                self.startCustomViewGuide()
+        guideInstance.options = [.backgroundColor(UIColor.darkGray), .textColor(UIColor.green), .cornerRadius(4.0), .dismissMode(.byClickAnywhere)]
+        guideInstance.startTutorial(
+            in: self,
+            withLessons: [EasyStartGuide.GuideLesson(view: centerLabel, text: "Custom colors and corners", arrowDirection: .up)],
+            completionHandler: {
+                self.startCustomViewGuide()
         })
     }
     
@@ -79,10 +79,9 @@ class ViewController: UIViewController {
         // Get test view and label to bind them to tutorial
         let (testView, testLabel) = makeCustomView()
         
-        let customViewGuideInstance = EasyStartGuide.instance
         // Bind container view and label to present text on it
-        customViewGuideInstance.options = [.customView(containerView: testView, label: testLabel), .cornerRadius(8.0)]
-        customViewGuideInstance.startTutorial(in: self, withLessons: [EasyStartGuide.GuideLesson(view: centerLabel, text: "Custom view example")])
+        guideInstance.options = [.customView(containerView: testView, label: testLabel), .cornerRadius(8.0)]
+        guideInstance.startTutorial(in: self, withLessons: [EasyStartGuide.GuideLesson(view: centerLabel, text: "Custom view example")])
     }
     
     
