@@ -3,7 +3,7 @@
 //  MemberSet
 //
 //  Created by User on 23/07/2019.
-//  Copyright © 2019 Saritasa. All rights reserved.
+//  Copyright © 2019 BardRedStar. All rights reserved.
 //
 
 import Foundation

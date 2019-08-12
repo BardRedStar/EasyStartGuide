@@ -25,7 +25,7 @@ All you need is to install it with CocoaPods and get started with perfect tutori
   s.homepage         = 'https://github.com/BardRedStar/EasyStartGuide'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'BardRedStar' => 'denis.kovalev@saritasa.com' }
+  s.author           = { 'BardRedStar' => 'den.kovalev999@gmail.com' }
   s.source           = { :git => 'https://github.com/BardRedStar/EasyStartGuide.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
