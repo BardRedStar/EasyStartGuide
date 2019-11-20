@@ -33,21 +33,21 @@ class ViewController: UIViewController {
             in: self,
             withLessons: [
                 // Common example
-                EasyStartGuide.GuideLesson(view: blueView, text: "There is a blue view on the top-left of the view!"),
-                EasyStartGuide.GuideLesson(view: greenView, text: "Small text"),
-                EasyStartGuide.GuideLesson(view: redView, text: "Bottom tip :)"),
-                EasyStartGuide.GuideLesson(view: orangeView, text: "Very-very-very-very-very-very-very-very-very-very-very-very-very-very huge text for the orange view"),
+                EasyStartGuide.GuideLesson(view: blueView, text: "Get started by creating channels for your group members.", arrowDirection: .up),
+                EasyStartGuide.GuideLesson(view: greenView, text: "Small text", arrowDirection: .up),
+                EasyStartGuide.GuideLesson(view: redView, text: "Bottom tip :)", arrowDirection: .down),
+                EasyStartGuide.GuideLesson(view: orangeView, text: "Very-very-very-very-very-very-very-very-very-very-very-very-very-very huge text for the orange view", arrowDirection: .down),
                 
                 // Arrow location example
-                EasyStartGuide.GuideLesson(view: centerLabel, text: "Top-left point of the center label", location: .topLeft),
-                EasyStartGuide.GuideLesson(view: centerLabel, text: "Top-right point of the center label", location: .topRight),
-                EasyStartGuide.GuideLesson(view: centerLabel, text: "Bottom-left point of the center label", location: .bottomLeft),
-                EasyStartGuide.GuideLesson(view: centerLabel, text: "Bottom-right point of the center label", location: .bottomRight),
-                EasyStartGuide.GuideLesson(view: centerLabel, text: "Top-center point of the center label", location: .topCenter),
-                EasyStartGuide.GuideLesson(view: centerLabel, text: "Bottom-center point of the center label", location: .bottomCenter),
-                EasyStartGuide.GuideLesson(view: centerLabel, text: "Left-center point of the center label", location: .leftCenter),
-                EasyStartGuide.GuideLesson(view: centerLabel, text: "Right-center point of the center label", location: .rightCenter),
-                EasyStartGuide.GuideLesson(view: centerLabel, text: "Custom point (10, 5) from the top-left point of the center label", location: .custom(x: 10.0, y: 5.0)),
+                EasyStartGuide.GuideLesson(view: centerLabel, text: "Top-left point of the center label", location: .topLeft, arrowDirection: .down),
+                EasyStartGuide.GuideLesson(view: centerLabel, text: "Top-right point of the center label", location: .topRight, arrowDirection: .down),
+                EasyStartGuide.GuideLesson(view: centerLabel, text: "Bottom-left point of the center label", location: .bottomLeft, arrowDirection: .up),
+                EasyStartGuide.GuideLesson(view: centerLabel, text: "Bottom-right point of the center label", location: .bottomRight, arrowDirection: .up),
+                EasyStartGuide.GuideLesson(view: centerLabel, text: "Top-center point of the center label", location: .topCenter, arrowDirection: .down),
+                EasyStartGuide.GuideLesson(view: centerLabel, text: "Bottom-center point of the center label", location: .bottomCenter, arrowDirection: .up),
+                EasyStartGuide.GuideLesson(view: centerLabel, text: "Left-center point of the center label", location: .leftCenter, arrowDirection: .right),
+                EasyStartGuide.GuideLesson(view: centerLabel, text: "Right-center point of the center label", location: .rightCenter, arrowDirection: .left),
+                EasyStartGuide.GuideLesson(view: centerLabel, text: "Custom point (10, 5) from the top-left point of the center label", location: .custom(x: 10.0, y: 5.0), arrowDirection: .up),
                 
                 // Arrow direction example
                 EasyStartGuide.GuideLesson(view: centerLabel, text: "Up arrow", arrowDirection: .up),
@@ -81,7 +81,7 @@ class ViewController: UIViewController {
         
         // Bind container view and label to present text on it
         guideInstance.options = [.customView(containerView: testView, label: testLabel), .cornerRadius(8.0)]
-        guideInstance.startTutorial(in: self, withLessons: [EasyStartGuide.GuideLesson(view: centerLabel, text: "Custom view example")])
+        guideInstance.startTutorial(in: self, withLessons: [EasyStartGuide.GuideLesson(view: centerLabel, text: "Custom view example", arrowDirection: .up)])
     }
     
     

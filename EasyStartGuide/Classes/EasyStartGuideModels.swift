@@ -67,7 +67,6 @@ public extension EasyStartGuide {
             case left
             case down
             case right
-            case any
             
             
             /// Gets the arrow direction in the popover notation
@@ -77,7 +76,6 @@ public extension EasyStartGuide {
                 case .down: return .down
                 case .left: return .left
                 case .right: return .right
-                case .any: return .any
                 }
             }
         }
@@ -119,7 +117,7 @@ public extension EasyStartGuide {
         ///   - text: Text of the lesson
         ///   - location: Arrow pointer location
         ///   - arrowDirection: Permitted arrow direction
-        public init(view: UIView, text: String, location: Location = .topLeft, arrowDirection: ArrowDirection = .any) {
+        public init(view: UIView, text: String, location: Location = .topLeft, arrowDirection: ArrowDirection) {
             self.view = view
             self.text = text
             self.location = location

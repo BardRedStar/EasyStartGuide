@@ -51,6 +51,7 @@ public class LessonPopoverViewController: UIViewController {
                     size = lessonTextLabel.sizeThatFits(Constants.popoverBoundsSize)
                     size = addInsetsToSize(insets: Constants.viewConstraints, to: size)
                 }
+                size.width += calculateAdditionalArrowSize()
                 return size
             } else {
                 return super.preferredContentSize
@@ -76,12 +77,11 @@ public class LessonPopoverViewController: UIViewController {
         
         modalPresentationStyle = .popover
         applyOptions(options: options)
-        configureView(text: text)
+        popoverPresentationController!.permittedArrowDirections = arrowDirection
         popoverPresentationController?.delegate = self
         popoverPresentationController!.sourceView = sourceView
         popoverPresentationController!.sourceRect = sourceRect
-        popoverPresentationController!.permittedArrowDirections = arrowDirection
-        
+        configureView(text: text)
         completionHandler = completion
     }
     
@@ -134,6 +134,7 @@ public class LessonPopoverViewController: UIViewController {
     private func configureView(text: String) {
         // If the custom view enabled
         if let customView = customView, let customLabel = customLabel {
+            customView.frame.origin = calculateArrowOffset()
             view.addSubview(customView)
             customLabel.text = text
             customLabel.sizeToFit()
@@ -145,7 +146,10 @@ public class LessonPopoverViewController: UIViewController {
             
             let size = lessonTextLabel.sizeThatFits(Constants.popoverBoundsSize)
             lessonTextLabel.frame = CGRect(origin: CGPoint(x: Constants.viewConstraints.left, y: Constants.viewConstraints.top), size: size)
-            let containerView = UIView(frame: CGRect(origin: .zero, size: addInsetsToSize(insets: Constants.viewConstraints, to: size)))
+
+            let arrowOffset = calculateArrowOffset()
+            let viewSize = addInsetsToSize(insets: Constants.viewConstraints, to: size)
+            let containerView = UIView(frame: CGRect(origin: arrowOffset, size: viewSize))
             containerView.backgroundColor = backgroundColor
             
             containerView.addSubview(lessonTextLabel)
@@ -171,6 +175,34 @@ public class LessonPopoverViewController: UIViewController {
         newSize.width += insets.left + insets.right
         newSize.height += insets.top + insets.bottom
         return newSize
+    }
+
+    /// Calculates offset for arrow
+    private func calculateArrowOffset() -> CGPoint {
+        if #available(iOS 13.0, *) {
+            switch popoverPresentationController!.permittedArrowDirections {
+            case .up:
+                return CGPoint(x: 0, y: 13)
+            case .left:
+                return CGPoint(x: 13, y: 0)
+            default:
+                return .zero
+            }
+        }
+        return .zero
+    }
+
+    /// Calculates arrow size accoridng to current iOS version
+    private func calculateAdditionalArrowSize() -> CGFloat {
+        if #available(iOS 13.0, *) {
+            switch popoverPresentationController!.permittedArrowDirections {
+            case .left, .right:
+                return 13.0
+            default:
+                return .zero
+            }
+        }
+        return .zero
     }
     
     
