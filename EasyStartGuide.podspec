@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'EasyStartGuide'
-  s.version          = '0.1.0'
+  s.version          = '0.1.1'
   s.summary          = 'A library for easy creating the start tutorial for new users.'
 
 # This description is used to generate tags and improve search results.
